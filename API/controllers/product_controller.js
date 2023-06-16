@@ -36,7 +36,7 @@ const addProduct = (req, res, next)=>{
                 }
                 else{
                     let insertQuery = `INSERT INTO product_tbl SET?`
-                    let productObj = product_Model.product_model(prod_name, prod_desc, prod_qty)
+                    let productObj = product_model.product_model(prod_name, prod_desc, prod_qty, prod_price)
 
                     database.db.query(insertQuery, productObj, (err, rows, result)=>{
                         if (err){
