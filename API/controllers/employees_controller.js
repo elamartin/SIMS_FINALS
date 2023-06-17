@@ -19,7 +19,7 @@ const addEmployees = (req, res, next)=>{
     }
     else{
         
-        let searchQuery = `SELECT * FROM supp_table WHERE employees = '${employees}'`
+        let searchQuery = `SELECT * FROM supp_table WHERE emp_Id = '${emp_Id}'`
         db.db.query(searchQuery, (err, rows, result)=>{
             if (err){
                 res.status(500).json({
@@ -69,7 +69,7 @@ const updateEmployees = (req, res, next)=>{
         })
     }
     else{
-        let searchQuery = `SELECT * FROM emp_tbl WHERE employees = '${employees}'`
+        let searchQuery = `SELECT * FROM emp_tbl WHERE emp_Id = '${emp_Id}'`
         db.db.query(searchQuery, (err, rows, result)=>{
             if (err){
                 res.status(500).json({
