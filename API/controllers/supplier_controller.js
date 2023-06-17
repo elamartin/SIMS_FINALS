@@ -16,7 +16,7 @@ const addSuppliers = (req, res, next)=>{
     }
     else{
         
-        let searchQuery = `SELECT * FROM supp_table WHERE supplier= '${supplier}'`
+        let searchQuery = `SELECT * FROM supp_table WHERE supp_Id= '${supp_Id}'`
         db.db.query(searchQuery, (err, rows, result)=>{
             if (err){
                 res.status(500).json({
@@ -67,7 +67,7 @@ const updateSupplier = (req, res, next)=>{
         })
     }
     else{
-        let searchQuery = `SELECT * FROM emp_tbl WHERE username = '${username}'`
+        let searchQuery = `SELECT * FROM supp_tbl WHERE supp_Id = '${supp_Id}'`
         db.db.query(searchQuery, (err, rows, result)=>{
             if (err){
                 res.status(500).json({
@@ -168,7 +168,7 @@ const deleteSupplier = (req, res, next)=>{
         })
     }
     else{
-       let query = `SELECT suppId FROM supp_tbl WHERE suppId = ${suppId}`
+       let query = `SELECT suppId FROM supp_tbl WHERE supp_Id = ${supp_Id}`
        
        database.db.query(query, (err, rows, result)=>{
             if (err){
@@ -179,7 +179,7 @@ const deleteSupplier = (req, res, next)=>{
             }
             else{
                 if (rows.length > 0){
-                    let deleteQuery = `DELETE FROM supp_tbl WHERE suppId = ${suppId}`
+                    let deleteQuery = `DELETE FROM supp_tbl WHERE suppId = ${supp_Id}`
 
                     database.db.query(deleteQuery, (err, rows, result)=>{
                         if (err){
